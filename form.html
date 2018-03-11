@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  	<meta charset="utf-8">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<script type="text/javascript" src="./beautify.js"></script>
+		
+		<script type="text/javascript" src="http://labs.creative-area.net/jquery.formautofill/jquery.formautofill.min.js"></script>
+
+ 	</head>
+ 	<body>
+
+		<form id="f_findbyname">
+		    name <input type="text" name="name" id="name_id">
+		    <p>email <input type="text" name="email" id="email_id">
+		    love jQuery
+		    <p><input type="radio" name="lovejquery" id="lovejquery_yes"
+		     value="yes"> yes
+		    <input type="radio" name="lovejquery" id="lovejquery_no"
+		     value="no"> no
+		    <input type="button" class="btn" value="autofill by id">
+		    <input type="reset" value="Очистить"></p>
+		</form>
+		<script>
+			var data = {
+			    "name_id": "John Doe",
+			    "email_id": "johndoe@mail.com",
+			    // always use "name" to find radio or checkbox multiple
+			    "lovejquery": "yes"
+			}
+			$("#f_findbyname .btn").bind("click", function() {
+			    $("#f_findbyname").autofill(data, {
+			        findbyname: false
+			    });
+			});
+		</script>
+
+
+ 	</body>
+</html>
